@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 // Get the client
 const mysql = require('mysql2/promise');
 const cors = require('cors')
@@ -9,6 +9,7 @@ const login = require('./login');
 const registro = require('./registro');
 const validar = require('./validar');
 const { obtenerUsuarios, eliminarUsuario } = require('./usuarios');
+mysql://root:KUdOXzAcBsMjakTOFutfIXFNMvppnSoi@autorack.proxy.rlwy.net:46600/railway
 
 
 app.use(cors({
