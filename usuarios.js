@@ -12,8 +12,8 @@ const obtenerUsuarios= async (req, res) => {
   );
   res.status(200).json(results)
   
-  console.log(results); // results contains rows returned by server
-  console.log(fields); // fields contains extra meta data about results, if available
+  console.log(results);     
+  console.log(fields); 
   } catch (err) {
   console.log(err);
   res.status(500).send('Error del servidor')
@@ -37,8 +37,8 @@ const obtenerUsuarios= async (req, res) => {
   }else{
     res.status(401).send('No se pudo eliminar')
   }
-  console.log(results); // results contains rows returned by server
-  console.log(fields); // fields contains extra meta data about results, if available
+  console.log(results);     
+  console.log(fields); 
   } catch (err) {
   console.log(err);
   res.status(500).send('Error del servidor')
