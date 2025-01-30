@@ -9,7 +9,6 @@ const login = require('./login');
 const registro = require('./registro');
 const validar = require('./validar');
 const { obtenerUsuarios, eliminarUsuario } = require('./usuarios');
-mysql://root:KUdOXzAcBsMjakTOFutfIXFNMvppnSoi@autorack.proxy.rlwy.net:46600/railway
 
 
 app.use(cors({
@@ -20,8 +19,8 @@ app.use(session({
   secret: process.env.SECRETSESSION || 'jsjjsjsj',
 proxy: process.env.NODE_ENV === 'production',
   cookie:{
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'none'
+    secure: false,
+    sameSite: 'lax'
   }
 }))
 

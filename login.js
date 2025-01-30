@@ -3,7 +3,7 @@ const connection = require("./conexion");
 const login = async (req, res) => {
     const datos = req.query;
     // Una consulta SELECT simple
-    try {
+  try {
       const [results, fields] = await connection.query(
       "SELECT * FROM `usuarios` WHERE `usuario` = ? AND `clave` = ?",
       [datos.usuario, datos.clave]
@@ -17,11 +17,11 @@ const login = async (req, res) => {
     
       console.log(results); // results contains rows returned by server
       console.log(fields); // fields contains extra meta data about results, if available
-      } catch (err) {
+  } catch (err) {
       console.log(err);
       res.status(500).send('Error del servidor')
     
-      }
+  }
     }
 
 module.exports= login; 
