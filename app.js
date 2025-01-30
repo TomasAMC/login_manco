@@ -10,11 +10,14 @@ const registro = require('./registro');
 const validar = require('./validar');
 const { obtenerUsuarios, eliminarUsuario } = require('./usuarios');
 
+const corsOptions = {
+  origin: 'https://login-mancodecoraciones.vercel.app',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
+};
 
-app.use(cors({
-  origin: process.env.URLTOMAS || 'http://localhost:5173',
-  credentials:true
-}))
+app.use(cors(corsOptions)),
+
 app.use(session({
   secret: process.env.SECRETSESSION || 'jsjjsjsj',
 proxy: process.env.NODE_ENV === 'production',
