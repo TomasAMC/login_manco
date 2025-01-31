@@ -19,9 +19,16 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+const RedisStore = require("connect-redis").default;
+const Redis = require("ioredis");
+
+const redisClient = new Redis(process.env.REDIS_URL);
 
 app.use(session({
+  store: new RedisStore({ client: redisClient }),
   secret: process.env.SECRETSESSION || 'jsjjsjsj',
+  resave: false, 
+  saveUninitialized: true,
 proxy: process.env.NODE_ENV === 'production',
   cookie:{
     secure: false,
